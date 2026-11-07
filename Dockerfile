@@ -10,7 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Instala dependências do sistema se necessário
-RUN apt-get update && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
 
 # Atualiza o pip e instala as dependências do Python
 COPY requirements.txt /app/
